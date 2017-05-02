@@ -1,22 +1,42 @@
 package simplex;
 
+import org.apache.commons.math3.linear.LUDecomposition;
+import org.apache.commons.math3.linear.RealMatrix;
+
 public class Simplex {
-	public static void main(String[] sa) {
-		float[][] dog = new float[3][2];
-		for(int i = 0; i<3;i++) {
-			for(int j = 0; j<2; j++) {
-				dog[i][j] = j;
-				//System.out.print(dog[i][j]+" ");
-			}
-			//System.out.println();
-		}
-		Matrix m = new Matrix(3,2,dog);
-		System.out.println(m.toString());
-		//openHome();
+	//A matrix
+	private RealMatrix A;
+	//b vector
+	private RealMatrix b;
+	//costs
+	private RealMatrix costs;
+	
+	
+	//cbark
+	public double cbark(int k) {
+		
+		return 0d;
+	}
+	//Abar
+	public RealMatrix compABark(int k) {
+		return b;
+	}
+	//bbar
+	public RealMatrix compbBar() {
+		return b;
+	}	
+	//zbar
+	public RealMatrix compZbar() {
+		return b;
+	}
+	//ybar
+	public RealMatrix compYbar() {
+		
+		return b;
 	}
 	
-	static void openHome() {
-		HomeFrame homepage = new HomeFrame();
-		homepage.setVisible(true);
+	public RealMatrix compAinv() {
+		RealMatrix aInv = new LUDecomposition(this.A).getSolver().getInverse();
+		return aInv;
 	}
 }
